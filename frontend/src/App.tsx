@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { Toaster } from "sonner";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/DashbaordPage";
+
 import DashboardLayout from "./components/dashboard/DashboardLayout";
 import Inventory from "./pages/Inventory";
 import Customers from "./pages/Customers";
-import Sales from "./pages/Sales";
+
 // import Reports from "./pages/Reports";
 import ProtectedRoute from "./components/ProtectedRoute";
 
