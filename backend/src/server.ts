@@ -18,14 +18,14 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 const corsOptions = {
-    origin: '*',
+    origin: 'https://inventory-management-five-ruby.vercel.app',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     exposedHeaders: ['Authorization'] // Required for token refresh headers
   };
   
-  app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
