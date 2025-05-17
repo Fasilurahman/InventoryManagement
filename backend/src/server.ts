@@ -18,11 +18,9 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 const corsOptions = {
-    origin: '*',
+    origin: 'https://inventory-management-git-main-fasilurahmans-projects.vercel.app',
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    exposedHeaders: ['Authorization'] // Required for token refresh headers
   };
 
 app.use(cors(corsOptions));
