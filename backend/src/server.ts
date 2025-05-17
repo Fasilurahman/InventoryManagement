@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: '*',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
