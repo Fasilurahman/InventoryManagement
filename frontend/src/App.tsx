@@ -8,7 +8,7 @@ import DashboardLayout from "./components/dashboard/DashboardLayout";
 import Inventory from "./pages/Inventory";
 import Customers from "./pages/Customers";
 
-// import Reports from "./pages/Reports";
+
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const App: React.FC = () => {
@@ -16,7 +16,7 @@ const App: React.FC = () => {
     <Router>
       <Toaster position="top-right" richColors />
       <Routes>
-        {/* <Route path="/" element={<Navigate to="/dashboard" replace />} /> */}
+
         <Route path="/register" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
 
@@ -28,11 +28,11 @@ const App: React.FC = () => {
             </ProtectedRoute>
           }
         >
-          {/* <Route index element={<DashboardPage />} /> */}
+   
           <Route path="inventory" element={<Inventory />} />
           <Route path="customers" element={<Customers />} />
-          {/* <Route path="sales" element={<Sales />} /> */}
-          {/* <Route path="reports" element={<Reports />} /> */}
+     
+        
         </Route>
 
         <Route path="*" element={<Navigate to="/dashboard" replace />} />

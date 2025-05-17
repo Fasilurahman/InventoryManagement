@@ -51,16 +51,9 @@ interface InventoryItem {
   quantity: number;
   status: "In Stock" | "Low Stock" | "Out of Stock";
   lastUpdated: string;
+  purchasedBy: string[];
 }
 
-interface CustomerLedgerEntry {
-  customerId: string;
-  customerName: string;
-  email: string;
-  totalItemsBought: number;
-  totalSpent: number;
-  lastPurchaseDate: Date;
-}
 
 interface Customer {
   id: string;
@@ -129,7 +122,7 @@ const Inventory: React.FC = () => {
   const [price, setPrice] = useState<number | "">("");
   const [quantity, setQuantity] = useState<number | "">("");
   const [description, setDescription] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [_loading, setLoading] = useState(false);
 
   const [editItemName, setEditItemName] = useState("");
   const [editCategory, setEditCategory] = useState("");
@@ -138,9 +131,7 @@ const Inventory: React.FC = () => {
   const [editDescription, setEditDescription] = useState("");
   const [showEditModal, setShowEditModal] = useState(false);
 
-  const [customerLedgerData, setCustomerLedgerData] = useState<
-    CustomerLedgerEntry[]
-  >([]);
+
 
   function resetForm() {
     setItemName("");
@@ -158,7 +149,7 @@ const Inventory: React.FC = () => {
         selectedCategory === "All" || item.category === selectedCategory;
 
       const searchLower = searchTerm.toLowerCase();
-      const customerNames = item.purchasedBy.flatMap((customerStr: any) => {
+      const customerNames = item?.purchasedBy.flatMap((customerStr: any) => {
         try {
           const customer: Customer = JSON.parse(customerStr);
           return customer.name.toLowerCase();
@@ -543,12 +534,12 @@ const Inventory: React.FC = () => {
     setLoading(true);
 
     try {
-      const newItem = {
+      const newItem: any = {
         itemName,
         category,
         price: Number(price),
         quantity: Number(quantity),
-        description,
+        description:  description || '',
         purchasedBy: selectedCustomers.map((customer) => customer?.id),
       };
 
@@ -1216,7 +1207,7 @@ const Inventory: React.FC = () => {
                 <div className="relative">
                   <Combobox
                     value={null}
-                    onChange={(newCustomer) => {
+                    onChange={(newCustomer: any) => {
                       if (
                         newCustomer &&
                         !selectedCustomers.some(

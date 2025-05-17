@@ -9,7 +9,6 @@ import {
   Phone,
   MapPin,
   Mail,
-  Printer,
   AlertCircle,
   Loader2,
   Check,
@@ -47,7 +46,7 @@ const Customers: React.FC = () => {
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [showAddModal, setShowAddModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(
+  const [selectedCustomer, _setSelectedCustomer] = useState<Customer | null>(
     null
   );
   const [errors, setErrors] = useState<Record<string, string>>({});
