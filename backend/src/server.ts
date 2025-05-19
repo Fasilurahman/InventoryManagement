@@ -19,8 +19,7 @@ connectDB();
 
 app.use(cors({
   origin: [
-    'https://task-management-six-lilac.vercel.app',
-    'https://task-management-6s3v0wk7y-shafis-projects-0d77721d.vercel.app', 
+    'https://inventory-management-five-ruby.vercel.app', // Add your new frontend URL
     'https://task-management-six-lilac.vercel.app',
     'http://localhost:5173'
   ],
