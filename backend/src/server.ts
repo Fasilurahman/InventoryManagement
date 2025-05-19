@@ -17,20 +17,16 @@ const PORT = process.env.PORT || 5000;
 
 connectDB();
 
-const corsOptions: cors.CorsOptions = {
+app.use(cors({
   origin: [
-    'https://inventory-management-five-ruby.vercel.app',
-    'https://inventory-management-git-main-fasilurahmans-projects.vercel.app',
+    'https://task-management-six-lilac.vercel.app',
+    'https://task-management-6s3v0wk7y-shafis-projects-0d77721d.vercel.app', 
+    'https://task-management-six-lilac.vercel.app',
+    'http://localhost:5173'
   ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  exposedHeaders: ['Authorization'],
-};
+  credentials: true
+}));
 
-// 🔥 This handles CORS preflight requests
-app.options('*', cors(corsOptions));
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
